@@ -41,5 +41,5 @@ func GetSignature(accessID, accessSecret, method, urlPath, body, accessToken str
 		Timestamp:  timestamp,
 		Nonce:      nonce,
 		SignMethod: "HMAC-SHA256",
-	},
+	}, nil
 }
