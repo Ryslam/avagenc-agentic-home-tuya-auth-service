@@ -13,16 +13,14 @@ import (
 	"github.com/Ryslam/avagenc-agentic-home-tuya-auth-service/internal/models"
 )
 
-// GetSignature generates the signature required for Tuya API requests.
-// GetSignatue is dynamic, can be used for any tuya endpoint
-func GetSignature(accessID, accessSecret, method, urlPath, body, accessToken string) (*models.SignatureData, error) {
+func GetSign(accessID, accessSecret string, req models.SignRequest, accessToken string) (*models.SignResponse, error) {
 	timestamp := strconv.FormatInt(time.Now().UnixNano()/int64(time.Millisecond), 10)
 
 	hash := sha256.New()
-	hash.Write([]byte(body))
+	hash.Write([]byte(req.Body))
 	contentSha256 := hex.EncodeToString(hash.Sum(nil))
 
-	stringToSign := method + "\n" + contentSha256 + "\n\n" + urlPath
+	stringToSign := req.Method + "\n" + contentSha256 + "\n\n" + req.URLPath
 
 	nonceBytes := make([]byte, 16)
 	if _, err := rand.Read(nonceBytes); err != nil {
@@ -36,10 +34,12 @@ func GetSignature(accessID, accessSecret, method, urlPath, body, accessToken str
 	mac.Write([]byte(tuyaStr))
 	sign := strings.ToUpper(hex.EncodeToString(mac.Sum(nil)))
 
-	return &models.SignatureData{
+	return &models.SignResponse{
 		Sign:       sign,
 		Timestamp:  timestamp,
 		Nonce:      nonce,
 		SignMethod: "HMAC-SHA256",
-	}, nil
+		AccessToken: accessToken,
+	},
+ nil
 }
