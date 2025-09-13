@@ -14,6 +14,7 @@ func main() {
 		log.Println("Warning: .env file not found. Reading credentials from environment.")
 	}
 
+	http.HandleFunc("/", handlers.RootHandler)
 	http.HandleFunc("/sign", handlers.SignatureHandler)
 
 	port := ":8080"
