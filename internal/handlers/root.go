@@ -5,12 +5,6 @@ import (
 	"net/http"
 )
 
-type RootResponse struct {
-	Service string `json:"service"`
-	Version string `json:"version"`
-	Status  string `json:"status"`
-}
-
 func RootHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
@@ -22,9 +16,13 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response := RootResponse{
+	response := struct {
+		Service string `json:"service"`
+		Version string `json:"version"`
+		Status  string `json:"status"`
+	}{
 		Service: "avagenc-agentic-home-tuya-auth-service",
-		Version: "0.1.0",
+		Version: "0.2.0",
 		Status:  "ok",
 	}
 
