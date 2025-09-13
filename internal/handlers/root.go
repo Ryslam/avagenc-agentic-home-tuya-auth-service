@@ -5,14 +5,12 @@ import (
 	"net/http"
 )
 
-// RootResponse is the structure for the root endpoint's JSON response
 type RootResponse struct {
 	Service string `json:"service"`
 	Version string `json:"version"`
 	Status  string `json:"status"`
 }
 
-// RootHandler handles requests to the root endpoint ("/")
 func RootHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
@@ -26,7 +24,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 
 	response := RootResponse{
 		Service: "avagenc-agentic-home-tuya-auth-service",
-		Version: "0.1.0", // For now, we'll hardcode this.
+		Version: "0.1.0",
 		Status:  "ok",
 	}
 
