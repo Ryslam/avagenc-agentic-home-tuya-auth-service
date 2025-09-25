@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/Ryslam/avagenc-agentic-home-tuya-auth-service/internal/models"
+	"github.com/avagenc/agentic-tuya-sign-service/internal/models"
 )
 
 

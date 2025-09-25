@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Ryslam/avagenc-agentic-home-tuya-auth-service/internal/handlers"
+	"github.com/avagenc/agentic-tuya-sign-service/internal/handlers"
 	"github.com/joho/godotenv"
 )
 

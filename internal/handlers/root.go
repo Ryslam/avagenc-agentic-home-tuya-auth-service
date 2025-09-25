@@ -21,7 +21,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 		Version string `json:"version"`
 		Status  string `json:"status"`
 	}{
-		Service: "avagenc-agentic-home-tuya-auth-service",
+		Service: "agentic-tuya-sign-service",
 		Version: "0.2.0",
 		Status:  "ok",
 	}

@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Ryslam/avagenc-agentic-home-tuya-auth-service/internal/models"
-	"github.com/Ryslam/avagenc-agentic-home-tuya-auth-service/internal/services"
+	"github.com/avagenc/agentic-tuya-sign-service/internal/models"
+	"github.com/avagenc/agentic-tuya-sign-service/internal/services"
 )
 
 func SignatureHandler(w http.ResponseWriter, r *http.Request) {

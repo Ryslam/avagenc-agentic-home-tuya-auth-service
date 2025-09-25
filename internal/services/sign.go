@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Ryslam/avagenc-agentic-home-tuya-auth-service/internal/models"
+	"github.com/avagenc/agentic-tuya-sign-service/internal/models"
 )
 
-func GetSign(accessID, accessSecret string, req models.SignRequest, accessToken string) (*models.SignResponse, error) {
+func GetSign(accessID string, accessSecret string, req models.SignRequest, accessToken string) (*models.SignResponse, error) {
 	timestamp := strconv.FormatInt(time.Now().UnixNano()/int64(time.Millisecond), 10)
 
 	hash := sha256.New()
