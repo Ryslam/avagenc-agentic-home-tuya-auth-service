@@ -35,11 +35,10 @@ func GetSign(accessID string, accessSecret string, req models.SignRequest, acces
 	sign := strings.ToUpper(hex.EncodeToString(mac.Sum(nil)))
 
 	return &models.SignResponse{
-		Sign:       sign,
-		Timestamp:  timestamp,
-		Nonce:      nonce,
-		SignMethod: "HMAC-SHA256",
+		Sign:        sign,
+		Timestamp:   timestamp,
+		Nonce:       nonce,
+		SignMethod:  "HMAC-SHA256",
 		AccessToken: accessToken,
-	},
- nil
+	}, nil
 }

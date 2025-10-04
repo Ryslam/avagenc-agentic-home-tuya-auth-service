@@ -9,7 +9,7 @@ type TuyaTokenResponseResult struct {
 
 type TuyaTokenResponse struct {
 	Result    TuyaTokenResponseResult `json:"result"`
-	Success   bool            `json:"success"`
-	Timestamp int64           `json:"t"`
-	Tid       string          `json:"tid"`
+	Success   bool                    `json:"success"`
+	Timestamp int64                   `json:"t"`
+	Tid       string                  `json:"tid"`
 }

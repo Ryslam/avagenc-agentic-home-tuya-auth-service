@@ -35,7 +35,6 @@ func SignatureHandler(w http.ResponseWriter, r *http.Request) {
 	tokenSignReq := models.SignRequest{
 		Method:  "GET",
 		URLPath: "/v1.0/token?grant_type=1",
-		Body:    "",
 	}
 	tokenSignature, err := services.GetSign(accessID, accessSecret, tokenSignReq, "")
 	if err != nil {

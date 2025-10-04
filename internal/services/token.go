@@ -9,10 +9,10 @@ import (
 	"github.com/avagenc/agentic-tuya-sign-service/internal/models"
 )
 
+const tuyaTokenEndpointPath = "/v1.0/token?grant_type=1"
 
 func GetAccessToken(accessID string, baseURL string, signature *models.SignResponse) (string, error) {
-	tuyaTokenEndpointPath := "/v1.0/token?grant_type=1"
-	fullURLPath := baseURL+tuyaTokenEndpointPath
+	fullURLPath := baseURL + tuyaTokenEndpointPath
 
 	httpReq, err := http.NewRequest("GET", fullURLPath, nil)
 	if err != nil {
